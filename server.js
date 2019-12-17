@@ -26,18 +26,10 @@ server.get('/payload', (req, res) => {
 });
 
 
-server.get('/', (req, res) => {
-  return res.sendFile('index.html')
-  //return res.render('/front/index.html');
-});
-
-
-function breakIntoPayload(){
-  const bruteText = document.getElementById('textArea').value
-  let treatedText = bruteText.split('\n');
-  console.log(treatedText);
-}
-
+// server.get('/', (req, res) => {
+//   return res.sendFile('index.html')
+//   //return res.render('/front/index.html');
+// });
 
 
 // criação de rota que será acessada utilizando o método HTTP POST/

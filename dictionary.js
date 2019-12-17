@@ -134,39 +134,28 @@ ASCII = {
     '⠿': '='
 };
 
-module.exports = {
-convert: function (character) {
+export function convert(character) {
     return !!BRAILLE[character] ? BRAILLE[character] : '?';
-},
-
-read: function (symbol) {
+}
+export function read(symbol) {
     return !!ASCII[symbol] ? ASCII[symbol] : '?';
-},
-
-toBraille: function (text) {
+}
+export function toBraille(text) {
     var upperText, upperTextLength, brailleText, i;
-
     upperText = text.toUpperCase();
     upperTextLength = upperText.length;
-    brailleText = '';
-
+    brailleText = [];
     for (i = 0; i < upperTextLength; i++) {
-        brailleText += this.convert(upperText[i]);
+        brailleText[i] = this.convert(upperText[i]);
     }
-
     return brailleText;
-},
-
-toText: function (code) {
+}
+export function toText(code) {
     var codeLength, asciiText, i;
-
     codeLength = code.length;
     asciiText = '';
-
     for (i = 0; i < codeLength; i++) {
         asciiText += this.read(code[i]);
     }
-
     return asciiText;
 }
-};
