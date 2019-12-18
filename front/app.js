@@ -1,13 +1,9 @@
-// import * as braille  from '../dictionary.js';
 import * as braille from '../dictionary.js';
 
 let payload = {
-    "status": "",
-    "size": "",
-
+    "a": "",
+    "b": ""
 }
-
-//aaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbboooooooooo
 
 var button = document.getElementById('button');
 button.addEventListener('click', function () {
@@ -20,6 +16,11 @@ function breakIntoPayload() {
     let j = 0;
     let count = 0;
 
+    if (bruteText != null) {
+        payload.a = "servWrite";
+        payload.b = bruteText.length;
+    }
+
     let treatedText = bruteText.split('\n');
 
     for (let l = 0; l < treatedText.length; l++) {
@@ -30,6 +31,7 @@ function breakIntoPayload() {
     let line2 = '';
     let line3 = '';
 
+    console.log(treatedText);
 
     treatedText.forEach(t => {
 
@@ -48,7 +50,6 @@ function breakIntoPayload() {
                 payload[line2] += t[k].charAt(2) + t[k].charAt(3);
                 payload[line3] += t[k].charAt(4) + t[k].charAt(5);
             }
-
             count++;
             if (count > 24) {
                 count = 0;
@@ -56,8 +57,10 @@ function breakIntoPayload() {
             }
         }
 
-    });
+        count = 0;
+        j = j + 3;
 
+    });
 
     console.log(payload);
 
