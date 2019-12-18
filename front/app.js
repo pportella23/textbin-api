@@ -4,86 +4,61 @@ import * as braille from '../dictionary.js';
 let payload = {
     "status": "",
     "size": "",
-    "line_1": "",
-    "line_2": "",
-    "line_3": "",
-    "line_4": "",
-    "line_5": ""
+
 }
 
+//aaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbboooooooooo
 
 var button = document.getElementById('button');
-button.addEventListener('click', function(){
+button.addEventListener('click', function () {
     breakIntoPayload();
 }, false);
 
-function breakIntoPayload(){
+function breakIntoPayload() {
     let bruteText = document.getElementById('textArea').value
+    let i = 0;
     let j = 0;
+    let count = 0;
+
     let treatedText = bruteText.split('\n');
 
-    console.log(treatedText);
-
-    //console.log(bruteText.length);
-
-
-    for (let i = 0; i < treatedText.length; i++){
-
-        if (treatedText[i].length > 24){
-            var line = treatedText[i];
-
-            //qqqqqqqqqqqqqqqqqqqqqqqqqqqqqeeee
-            
-            treatedText[i] = [line.slice(0, 25), '\n', line.slice(25)].join('');
-
-            let aux = treatedText[i].split('\n');
-            
-            //console.log("largo");
-            console.log(aux);
-
-            treatedText.splice(i,0,aux[1]);
-            
-            treatedText[i] = aux[0];
-            
-            
-            //console.log(treatedText);
-
-
-            //treatedText.splice(i, 0, aux);
-            
-            //console.log(treatedText[i]);            
-            //console.log(treatedText);
-
-            //treatedText = treatedText[i].split('\n');
-            
-            //var result = "foo baz".splice(4, 0, "bar ");
-        }
-
+    for (let l = 0; l < treatedText.length; l++) {
+        treatedText[l] = braille.toBraille(treatedText[l])
     }
 
-    //treatedText = treatedText.split('\n');
-
-    console.log(treatedText);
-
-    //treatedText = bruteText.split('\n');
-    
-    let texto = [];
-    
-    for (let i = 0; i < treatedText.length; i++){
-        texto[i] = braille.toBraille(treatedText[i]);
-    } 
-    
-
-    //texto[0][1]
-    payload.line_6 = "usguri";
-
-    
-
-    //console.log(texto);
-    
-    //console.log(texto[0][1].charAt(0));
-    
-    //console.log(payload);
+    let line1 = '';
+    let line2 = '';
+    let line3 = '';
 
 
-  }
+    treatedText.forEach(t => {
+
+        for (let k = 0; k < t.length; k++) {
+            line1 = `line_` + (1 + j);
+            line2 = `line_` + (2 + j);
+            line3 = `line_` + (3 + j);
+
+            if (payload[line1] == undefined && payload[line2] == undefined && payload[line3] == undefined) {
+                payload[line1] = t[k].charAt(0) + t[k].charAt(1);
+                payload[line2] = t[k].charAt(2) + t[k].charAt(3);
+                payload[line3] = t[k].charAt(4) + t[k].charAt(5);
+            }
+            else {
+                payload[line1] += t[k].charAt(0) + t[k].charAt(1);
+                payload[line2] += t[k].charAt(2) + t[k].charAt(3);
+                payload[line3] += t[k].charAt(4) + t[k].charAt(5);
+            }
+
+            count++;
+            if (count > 24) {
+                count = 0;
+                j = j + 3;
+            }
+        }
+
+    });
+
+
+    console.log(payload);
+
+}
