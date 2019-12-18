@@ -64,4 +64,12 @@ function breakIntoPayload() {
 
     console.log(payload);
 
+    //não funcionando o fetch ainda!
+
+    fetch('http://localhost:9000/add', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(payload)
+    });
+
 }
