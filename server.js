@@ -28,4 +28,4 @@ server.post('/add', (req, res) => {
 });
 
 // o servidor irá rodar dentro da porta 9000
-server.listen(3000, () => console.log('Express started at http://localhost:3000'));
+server.listen(process.env.PORT || 3000, () => console.log('Express started at http://localhost:3000'));
