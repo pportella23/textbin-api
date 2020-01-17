@@ -23,6 +23,7 @@ See that the only thing that is done in the API is create the server and set the
 
 ## Testing
 I deployed the API in the Heroku platform, so it's accessible by the link: [https://brailleprinter-api.herokuapp.com/](https://brailleprinter-api.herokuapp.com/)
+
 OBS: Don't forget to use the routes at the end of the link ('/payload' and '/add')
 
 ## Created by
