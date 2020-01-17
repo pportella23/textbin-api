@@ -6,7 +6,7 @@ This repository contains only the API that sets up the routes to provide access 
 
 ## How it works
 ##### Front-end Application
-* We made a simple app to input the ASCII text and convert to braille => See the [app repository](https://github.com/pportella23/BPrinter-Frontend) for detail
+* We made a simple app to input the ASCII text and convert to braille => See the [app repository](https://github.com/pportella23/brailleprinter-frontend) for detail
 ##### API System
 The API has a file called ```server.js``` with all the logic to get it working. Basically, what it does is create an express server and set two routes: 
 ```
