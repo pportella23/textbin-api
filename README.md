@@ -1,18 +1,18 @@
 # Braille Printer Project 
 This is a project that aims in helping people with visual deficiency by making easier and cheaper to print texts in braille.
 
-This repository contains only the API that convert ASCII text to braille language. 
+This repository contains only the API that sets up the routes to provide access to converted content.
 
 
 ## How it works
 ##### Front-end Application
-* We made a simple app to input the ASCII text to be converted => See the [app repository](https://github.com/pportella23/BPrinter-Frontend) for detail
+* We made a simple app to input the ASCII text and convert to braille => See the [app repository](https://github.com/pportella23/BPrinter-Frontend) for detail
 ##### API System
 The API has a file called ```server.js``` with all the logic to get it working. Basically, what it does is create an express server and set two routes: 
 ```
 /payload
 ```
-This route is a GET method and is used to acess the content that will be translated to braille.
+This route is a GET method and is used to acess the content that was translated to braille.
 ```
 /add
 ```
