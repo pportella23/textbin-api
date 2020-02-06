@@ -22,7 +22,7 @@ This route is a POST method and is used to input the text that was already conve
 See that the only thing that is done in the API is create the server and set the routes to get it working. All the conversion logic is done in the front-end application.
 
 ## Testing
-I deployed the API in the Heroku platform, so it's accessible by the link: [https://brailleprinter-api.herokuapp.com/](https://brailleprinter-api.herokuapp.com/)
+I deployed the API in the Heroku platform, so it's accessible by the link: [https://brailleprinter-api.herokuapp.com/payload](https://brailleprinter-api.herokuapp.com/payload)
 
 OBS: Don't forget to use the routes at the end of the link ('/payload' and '/add')
 
