@@ -20,7 +20,7 @@ This route is also a POST method and is used to receive the text, convert it to 
 See that the API creates the server, set the routes to get it working and convert the text to binary. All this logic can be tested by acessing the web app to input some text and get it done!
 
 ## Testing
-I deployed the API in the Heroku platform, so it's accessible by the link: [https://brailleprinter-api.herokuapp.com/](https://brailleprinter-api.herokuapp.com/)
+I deployed the API in the Heroku platform, so it's accessible by the link: [https://textbin-api.herokuapp.com/](https://textbin-api.herokuapp.com/)
 
 OBS: Don't forget that the POST route cannot be used from a web browser, but it can be called by the app that I made at => [textbin-app](https://github.com/pportella23/textbin-app)
 
